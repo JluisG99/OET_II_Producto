@@ -5,7 +5,7 @@ En el ámbito de la teledetección y el análisis geoespacial, las imágenes sat
 los cambios en la superficie terrestre. Sin embargo, debido a factores atmosféricos, condiciones climáticas y otros artefactos, las imágenes capturadas por los sensores no  
 siempre son ideales para el análisis directo. Es aquí donde el filtrado de imágenes juega un papel crucial.  
 
-[![Imagen de ejemplo]([https://i.ytimg.com/vi/Dqjtoj9AJak/maxresdefault.jpg](https://developers.google.com/earth-engine/datasets/catalog/sentinel-2)
+[![Imagen de ejemplo][https://i.ytimg.com/vi/Dqjtoj9AJak/maxresdefault.jpg](https://developers.google.com/earth-engine/datasets/catalog/sentinel-2)
 
 
 El filtrado de imágenes [Sentinel-2  en Google Earth Engine (GEE)](https://developers.google.com/earth-engine/datasets/catalog/sentinel)
