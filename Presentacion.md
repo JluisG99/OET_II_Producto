@@ -24,8 +24,9 @@ A través de técnicas y procesos específicos, podemos filtrar las imágenes se
 En esta presentación, exploraremos una metodología efectiva para filtrar y seleccionar imágenes Sentinel-2 en GEE, permitiendo a nuestro equipo técnico optimizar su flujo de trabajo y maximizar el valor de los datos disponibles.
 
 ## Hay tres etapas de filtrado:
-### Filtrado
-```// Agregar la variable ROI o Area de Interes... Se debe subir a GEE.
+### 1. Filtrado
+```
+// Agregar la variable ROI o Area de Interes... Se debe subir a GEE.
 
 // Acceder a la coleccion de imagenes Sentinel 2-L1C
 var sentinel2A = ee.ImageCollection("COPERNICUS/S2_SR_HARMONIZED")
@@ -46,8 +47,9 @@ for (var i = 0; i < imageList.length().getInfo(); i++) {
   print('ID de la imagen ' + i + ': ' + id);
 }
 ```
-### Selección de Imágenes
-```// Primero agregar mi variable ROI
+### 2. Selección de Imágenes
+```
+// Primero agregar mi variable ROI
 // Generar una variable que contenga un diccionario que permita enlistar las imagenes filtradas.
 
 var imageList = [
@@ -121,7 +123,7 @@ var outlineParams = {
 // Display the ROI on the map with no filling color
 Map.addLayer(emptyImage, outlineParams, 'ROI without Filling Color');
 ```
-### Obtención del ID del producto Copernicus:  
+### 3. Obtención del ID del producto Copernicus:  
 ```
 var image = ee.Image("COPERNICUS/S2_SR/20210206T155529_20210206T155524_T17PLL");
 
