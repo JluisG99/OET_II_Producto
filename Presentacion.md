@@ -16,8 +16,8 @@ GEE permite acceder a distintos datasets como por ejemplo:
 
 [![](https://developers.google.com/static/earth-engine/images/datasets/copernicus_s2_sr_1280_856.jpg)](https://developers.google.com/earth-engine/datasets/catalog/sentinel)
 
+#### Productos de Sentinel 2 
+[![](https://sentinel.esa.int/documents/247904/266422/Sentinel-2+Processing+Levels+Overview+%28up+to+L2A%29.png/d6743f9c-b43a-b6b0-4c4e-7d89b3f5e5e4?t=1677240675567)](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/processing-levels)
 El filtrado de imágenes [Sentinel-2  en Google Earth Engine (GEE)](https://developers.google.com/earth-engine/datasets/catalog/sentinel)
- nos brinda la capacidad de mejorar la calidad y utilidad de las imágenes adquiridas, permitiéndonos extraer  
-información más precisa y coherente. A través de técnicas y procesos específicos, podemos reducir el ruido, eliminar los efectos atmosféricos y seleccionar las imágenes  
-más adecuadas para nuestro análisis. En esta presentación, exploraremos una metodología efectiva para filtrar y seleccionar imágenes Sentinel-2 en GEE, permitiendo a  
-nuestro equipo técnico optimizar su flujo de trabajo y maximizar el valor de los datos disponibles.
+ nos brinda la capacidad de mejorar la calidad y utilidad de las imágenes adquiridas, permitiéndonos extraer información más precisa y coherente. A través de técnicas y procesos específicos, podemos reducir el ruido, eliminar los efectos atmosféricos y seleccionar las imágenes más adecuadas para nuestro análisis. Las imágenes **Sentinel 2** deben pasar por una serie de procesos técnicos que mejoran la calidad del producto, al ejecutar esos procesos nuevos niveles se van creando. 
+En esta presentación, exploraremos una metodología efectiva para filtrar y seleccionar imágenes Sentinel-2 en GEE, permitiendo a nuestro equipo técnico optimizar su flujo de trabajo y maximizar el valor de los datos disponibles.
