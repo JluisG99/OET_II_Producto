@@ -24,7 +24,7 @@ A través de técnicas y procesos específicos, podemos filtrar las imágenes se
 En esta presentación, exploraremos una metodología efectiva para filtrar y seleccionar imágenes Sentinel-2 en GEE, permitiendo a nuestro equipo técnico optimizar su flujo de trabajo y maximizar el valor de los datos disponibles.
 
 ## Hay tres etapas de filtrado:
-### 1. Filtrado
+### 1. Aplicar filtros con las variables de interés:
 ```
 // Agregar la variable ROI o Area de Interes... Se debe subir a GEE.
 
@@ -47,9 +47,9 @@ for (var i = 0; i < imageList.length().getInfo(); i++) {
   print('ID de la imagen ' + i + ': ' + id);
 }
 ```
-### 2. Selección de Imágenes
+### 2. Selección de Imágenes:
 ```
-// Primero agregar mi variable ROI
+// Primero agregar mi variable ROI: para ello de sube al ambiente GEE los archivos .shp que contienen el área de interés.
 // Generar una variable que contenga un diccionario que permita enlistar las imagenes filtradas.
 
 var imageList = [
