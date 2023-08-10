@@ -14,10 +14,7 @@ GEE permite acceder a distintos datasets como por ejemplo:
   - Sentinel
 - Geophysical
 
-
-[![Sentinel 2](https://developers.google.com/static/earth-engine/images/datasets/copernicus_s2_sr_1280_856.jpg)](https://developers.google.com/earth-engine/datasets/catalog/sentinel)
-
-
+[![](https://developers.google.com/static/earth-engine/images/datasets/copernicus_s2_sr_1280_856.jpg)](https://developers.google.com/earth-engine/datasets/catalog/sentinel)
 
 El filtrado de imágenes [Sentinel-2  en Google Earth Engine (GEE)](https://developers.google.com/earth-engine/datasets/catalog/sentinel)
  nos brinda la capacidad de mejorar la calidad y utilidad de las imágenes adquiridas, permitiéndonos extraer  
