@@ -14,7 +14,7 @@ GEE permite acceder a distintos datasets como por ejemplo:
   - Sentinel
 - Geophysical
 
-#### Productos de Sentinel 2 
+### Productos de Sentinel 2 
 [![](https://sentinel.esa.int/documents/247904/266422/Sentinel-2+Processing+Levels+Overview+%28up+to+L2A%29.png/d6743f9c-b43a-b6b0-4c4e-7d89b3f5e5e4?t=1677240675567)](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/processing-levels)
 El filtrado de imágenes *Sentinel-2  en Google Earth Engine (GEE)* nos brinda la capacidad de mejorar la calidad y utilidad de las imágenes adquiridas, permitiéndonos extraer información más precisa y coherente.  
 Los niveles de procesamiento a los que se tiene acceso son:
