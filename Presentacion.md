@@ -48,7 +48,7 @@ for (var i = 0; i < imageList.length().getInfo(); i++) {
 ```
 ### Selección de Imágenes
 ```// Primero agregar mi variable ROI
-// Generar una variable en forma de diccionario que permite enlistar las imagenes filtradas.
+// Generar una variable que contenga un diccionario que permita enlistar las imagenes filtradas.
 
 var imageList = [
   {id: 'COPERNICUS/S2/20210105T160511_20210105T160512_T16PHR', name: 'Image 0'},
@@ -120,4 +120,13 @@ var outlineParams = {
 
 // Display the ROI on the map with no filling color
 Map.addLayer(emptyImage, outlineParams, 'ROI without Filling Color');
+```
+### Obtención del ID del producto Copernicus:
+```var image = ee.Image("COPERNICUS/S2_SR/20210206T155529_20210206T155524_T17PLL");
+
+// Get all metadata properties of the image
+image.getInfo(function(info) {
+  // Print the metadata in the console
+  print('Metadata:', info.properties);
+});
 ```
