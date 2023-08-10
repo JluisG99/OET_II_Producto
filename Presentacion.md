@@ -1,4 +1,6 @@
-# Introducción al Filtrado de Imágenes Sentinel-2 en Google Earth Engine
+# Introducción al Filtrado de Imágenes Sentinel-2 en Google Earth Engine 
+## <span style="background-color: #f3f3f3; padding: 5px;">Encabezado con fondo de color</span>
+
 ###### Por Jose Luis Gamboa Mora, Agosto del 2023
 En el ámbito de la teledetección y el análisis geoespacial, las imágenes satelitales Sentinel-2 proporcionan una valiosa fuente de información para monitorear y comprender  
 los cambios en la superficie terrestre. Sin embargo, debido a factores atmosféricos, condiciones climáticas y otros artefactos, las imágenes capturadas por los sensores no  
