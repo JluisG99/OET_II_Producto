@@ -15,7 +15,7 @@ GEE permite acceder a distintos datasets como por ejemplo:
 - Geophysical
 
 
-[![](https://developers.google.com/static/earth-engine/images/datasets/copernicus_s2_sr_1280_856.jpg)](https://developers.google.com/earth-engine/datasets/catalog/sentinel)
+[![Sentinel 2](https://developers.google.com/static/earth-engine/images/datasets/copernicus_s2_sr_1280_856.jpg)](https://developers.google.com/earth-engine/datasets/catalog/sentinel)
 
 
 
