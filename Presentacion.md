@@ -122,7 +122,8 @@ var outlineParams = {
 Map.addLayer(emptyImage, outlineParams, 'ROI without Filling Color');
 ```
 ### Obtención del ID del producto Copernicus:  
-```var image = ee.Image("COPERNICUS/S2_SR/20210206T155529_20210206T155524_T17PLL");
+```
+var image = ee.Image("COPERNICUS/S2_SR/20210206T155529_20210206T155524_T17PLL");
 
 // Get all metadata properties of the image
 image.getInfo(function(info) {
