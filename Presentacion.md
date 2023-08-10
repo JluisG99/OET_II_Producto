@@ -5,6 +5,7 @@ En el ámbito de la teledetección y el análisis geoespacial, las imágenes sat
 los cambios en la superficie terrestre. Sin embargo, debido a factores atmosféricos, condiciones climáticas y otros artefactos, las imágenes capturadas por los sensores no  
 siempre son ideales para el análisis directo. Es aquí donde el filtrado de imágenes juega un papel crucial.  
 ### Google Earth Engine (GEE)
+[![](https://developers.google.com/static/earth-engine/images/datasets/copernicus_s2_sr_1280_856.jpg)](https://developers.google.com/earth-engine/datasets/catalog/sentinel)
 Permite a sus usuarios filtrar y descargar imágenes desde su entorno virtual, a través de códigos programados en el lenguaje de programación [Java Script.](https://developer.mozilla.org/es/docs/Learn/JavaScript/First_steps/What_is_JavaScript)  
 
 GEE permite acceder a distintos datasets como por ejemplo:  
@@ -13,8 +14,6 @@ GEE permite acceder a distintos datasets como por ejemplo:
   - Landsat
   - Sentinel
 - Geophysical
-
-[![](https://developers.google.com/static/earth-engine/images/datasets/copernicus_s2_sr_1280_856.jpg)](https://developers.google.com/earth-engine/datasets/catalog/sentinel)
 
 #### Productos de Sentinel 2 
 [![](https://sentinel.esa.int/documents/247904/266422/Sentinel-2+Processing+Levels+Overview+%28up+to+L2A%29.png/d6743f9c-b43a-b6b0-4c4e-7d89b3f5e5e4?t=1677240675567)](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/processing-levels)
