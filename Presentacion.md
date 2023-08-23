@@ -1,3 +1,4 @@
+![](C:/Users/User/Documents/Consultoría OET/ebc195fc-f5eb-4798-b762-dac06a0d7fd6.jpg)
 # Introducción al Filtrado de Imágenes Sentinel-2 en Google Earth Engine 
 
 ###### **Por Jose Luis Gamboa Mora, Agosto del 2023**
@@ -24,21 +25,29 @@ En esta presentación, exploraremos una metodología efectiva para filtrar y sel
 
 ## Hay tres etapas de filtrado:
 ### 1. Aplicar filtros con las variables de interés:
-```
-// Agregar la variable ROI o Area de Interes... Se debe subir a GEE.
+Primero se debe cargar la capa que contiene mi área de interés. Para ello, se sube el archivo (.shp) desde la plataforma GEE, una vez el archivo esté en la plataforma este puede ser añadido automáticamente como una variable através de la flecha que se despliega cuando el pulsor está sobre el archivo. El nombre de la variable creada puede ser cambiado.
 
+A continuación se muestra el código que contiene la fuente de los datos y los filtros principales para la selección de imágenes.  
+```
 // Acceder a la coleccion de imagenes Sentinel 2-L1C
-var sentinel2A = ee.ImageCollection("COPERNICUS/S2_SR_HARMONIZED")
+var sentinel2A = ee.ImageCollection("COPERNICUS/S2_SR") // dentro del paréntesis se encuentra el directorio de la colección.
 
 // Aplicar los filtros oportunos:
 var ROI1_2021 = sentinel2A.filterBounds(ROI1)
            .filterDate('2021-01-01','2021-12-31')
            .filterMetadata('CLOUDY_PIXEL_PERCENTAGE', 'less_than', 30)
-           
+```
+**ee.ImageCollection(...):** Esto es una llamada a una clase o constructor llamado *ee.ImageCollection* en Google Earth Engine (GEE). Las colecciones de imágenes son estructuras en GEE que contienen imágenes satelitales u otros tipos de datos geoespaciales.
 
+Ahora que le hemos asignado a la **variable ROI_2021** las imágenes resultantes del filtro sobre, necesitamos identificarlas para poder visualizarlas.  
+```
 // Obtener la lista de imágenes de la colección filtrada
 var imageList = ROI1_2021.toList(ROI1_2021.size());
 
+```
+**.toList(...):** Este método convierte una colección en una lista. 
+
+```
 // Iterar sobre la lista de imágenes y obtener el ID de cada imagen
 for (var i = 0; i < imageList.length().getInfo(); i++) {
   var image = ee.Image(imageList.get(i));
@@ -46,10 +55,26 @@ for (var i = 0; i < imageList.length().getInfo(); i++) {
   print('ID de la imagen ' + i + ': ' + id);
 }
 ```
+**for (...) { ... }:** Esta es una estructura de control que crea un bucle iterativo. En este caso, se utiliza para recorrer la   
+lista de imágenes y realizar acciones en cada iteración.  
+
+**.get(i):** Esto se utiliza para obtener el elemento en la posición i de una lista o colección.  
+
+**.id():** Este método devuelve el ID único de una imagen en GEE.  
+
+**.getInfo():** Este método se utiliza para obtener el valor de una variable en un formato que se puede utilizar en  
+JavaScript estándar, ya que GEE utiliza una estructura de datos especial.  
+
+**print('ID de la imagen ' + i + ': ' + id);:** Finalmente, se imprime en la consola de GEE un mensaje que muestra el número  
+de iteración (i) y el ID de la imagen. La concatenación de los valores se realiza utilizando el operador +.  
 ### 2. Selección de Imágenes:
+Para mantener el orden en los procesos, se trabaja en un nuevo documento de GEE.  
+Con los resultados del print del paso anterior, se debe crear una *lista* que contenga las imágenes filtradas.  
+Estos ids son exclusivamente de GEE, por lo que sólo en esa plataforma existen con esos ids.  
+
 ```
-// Primero agregar mi variable ROI: para ello de sube al ambiente GEE los archivos .shp que contienen el área de interés.
-// Generar una variable que contenga un diccionario que permita enlistar las imagenes filtradas.
+// Primero agregar la variable con el ROI .shp que contienen el área de interés.
+// Generar una variable que enliste las imágenes filtradas.
 
 var imageList = [
   {id: 'COPERNICUS/S2/20210105T160511_20210105T160512_T16PHR', name: 'Image 0'},
@@ -92,27 +117,35 @@ var imageList = [
   {id: 'COPERNICUS/S2/20211211T160511_20211211T160510_T17PKL', name: 'Image 37'},
   {id: 'COPERNICUS/S2/20211211T160511_20211211T160510_T17PLL', name: 'Image 38'}
 ];
-
+```
+En el siguiente paso se debe crear un [bucle](https://keepcoding.io/blog/bucles-o-ciclos-de-programacion/).  
+Utilizar un bucle en este caso es importante para automatizar el proceso de mapeo de imágenes pues de lo contrario habría que  
+generar el mismo código para cada una de las imágenes.  
+En el siguiente código **for** inicia el bucle que recorre cada elemento de la lista, **i** tiene la función de controlar la  
+posición actual en la lista.  var image = ee.Image(imageList[i].id), **ee.Image** permite hace posible trabajar sobre una imágen de forma individual; **i** permite acceder a un objeto de la lista y el **id** crea una instancia sobre la imagen. Después, también se  
+itera sobre el nombre de la imagen para utilizarlo como una etiqueta en el mapa.  
+```
 // Loop sobre la lista de imágenes
 for (var i = 0; i < imageList.length; i++) {
   var image = ee.Image(imageList[i].id);
   var imageName = imageList[i].name;
   
-  // Visualiza la imagen en RGB
+  // Visualiza la imagen en RGB, al mapa se le pasan las variables definidas. 
   Map.addLayer(image, {bands: ['B4', 'B3', 'B2'], min: 0, max: 3000}, imageName);
 }
 
-// Set the outline color
+// Set the outline color; en formato hexadecimal significa color negro. En internet están todos los colores en ese formato.  
 var outlineColor = '000000';
 
-// Create an image with a constant value of 0
+// Create an image with a constant value of 0,se crea una imágen vacía para representar contornos únicamente.  
 var emptyImage = ee.Image().byte().paint({
   featureCollection: roi,
   color: 0,
   width: 1
 });
 
-// Create a visualization parameter to display the outline
+// Create a visualization parameter to display the outline. Parámetros de visualización, palette ya está definido y el
+forceRGB asegura que la salida sea en formato RGB:  
 var outlineParams = {
   palette: outlineColor,
   opacity: 1,
@@ -122,7 +155,11 @@ var outlineParams = {
 // Display the ROI on the map with no filling color
 Map.addLayer(emptyImage, outlineParams, 'ROI without Filling Color');
 ```
+A este punto, una vez corrido el código, las imágenes han sido mapeadas y pueden ser visualizadas cuando terminen de cargar. Además  
+estas pueden ser identificadas gracias a la identificación **name** que se le añadió a la hora de generar las etiquetas del mapa.  
 ### 3. Obtención del ID del producto Copernicus:  
+Finalmente, para poder descargar las imágenes originales desde [Copernicus Open Access Hub](https://scihub.copernicus.eu/dhus/#/home)  se debe tener identificada la imágen en GEE y revisar sus *metadatos*, dónde se encuentra almacenada la información original del  
+archivo de interés.  
 ```
 var image = ee.Image("COPERNICUS/S2_SR/20210206T155529_20210206T155524_T17PLL");
 
@@ -132,3 +169,4 @@ image.getInfo(function(info) {
   print('Metadata:', info.properties);
 });
 ```
+El último paso para descargar la imagen es copiar el id original de la imagen y pegarlo en el buscador de Copernicus.
