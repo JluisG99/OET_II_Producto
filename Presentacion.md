@@ -32,16 +32,24 @@ ser añadido automáticamente como una variable através de la flecha que se des
 A continuación se muestra el código que contiene la fuente de los datos y los filtros principales para la selección de imágenes.  
 ```
 // Acceder a la coleccion de imagenes Sentinel 2-L1C
-var sentinel2A = ee.ImageCollection("COPERNICUS/S2_SR") // dentro del paréntesis se encuentra el directorio de la colección.
+var sentinel1C = ee.ImageCollection("COPERNICUS/S2_SR") // dentro del paréntesis se encuentra el directorio de la colección.
 
 // Aplicar los filtros oportunos:
-var ROI1_2021 = sentinel2A.filterBounds(ROI1)
+var ROI1_2021 = sentinel1C.filterBounds(ROI1)
            .filterDate('2021-01-01','2021-12-31')
            .filterMetadata('CLOUDY_PIXEL_PERCENTAGE', 'less_than', 30)
 ```
+Adicionalmente, si queremos encontrar imagen con nubosidad entre 30 y 60% por ejemplo, se puede agregar lo siguiente:  
+ ```
+// Aplicar los filtros oportunos:
+var ROI1_2021 = sentinel2A.filterBounds(ROI1)
+           .filterDate('2021-01-01','2021-12-31')
+           .filterMetadata('CLOUDY_PIXEL_PERCENTAGE', 'greater_than', 30)
+           .filterMetadata('CLOUDY_PIXEL_PERCENTAGE', 'less_than', 60);
+```
 **ee.ImageCollection(...):** Esto es una llamada a una clase o constructor llamado *ee.ImageCollection* en Google Earth Engine (GEE). Las colecciones de imágenes son estructuras en GEE que contienen imágenes satelitales u otros tipos de datos geoespaciales.
 
-Ahora que le hemos asignado a la **variable ROI_2021** las imágenes resultantes del filtro sobre, necesitamos identificarlas para poder visualizarlas.  
+Ahora que le hemos asignado a la **variable ROI_2021** las imágenes resultantes del filtro, necesitamos identificarlas para poder visualizarlas.  
 ```
 // Obtener la lista de imágenes de la colección filtrada
 var imageList = ROI1_2021.toList(ROI1_2021.size());
