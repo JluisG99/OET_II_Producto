@@ -1,4 +1,4 @@
-![](C:/Users/User/Documents/Consultoría OET/ebc195fc-f5eb-4798-b762-dac06a0d7fd6.jpg)
+![](blob:https://web.whatsapp.com/ebc195fc-f5eb-4798-b762-dac06a0d7fd6)
 # Introducción al Filtrado de Imágenes Sentinel-2 en Google Earth Engine 
 
 ###### **Por Jose Luis Gamboa Mora, Agosto del 2023**
