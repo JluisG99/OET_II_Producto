@@ -1,7 +1,8 @@
-![](blob:https://web.whatsapp.com/ebc195fc-f5eb-4798-b762-dac06a0d7fd6)
 # Introducción al Filtrado de Imágenes Sentinel-2 en Google Earth Engine 
 
 ###### **Por Jose Luis Gamboa Mora, Agosto del 2023**
+La incertidumbre hacia los datos científicos por parte de los distintos actores que inciden sobre la acción climática y la  
+gestión ambiental se reduce en cuánto se brindan metodologías que aseguren calidad del dato y agilicen procesos.  
 En el ámbito de la teledetección y el análisis geoespacial, las imágenes satelitales Sentinel-2 proporcionan una valiosa fuente de información para monitorear y comprender los cambios en la superficie terrestre. Sin embargo, debido a factores atmosféricos y climáticos, las imágenes capturadas por los sensores no siempre son ideales para el análisis directo. Es aquí donde el filtrado de imágenes juega un papel crucial.  
 ### Google Earth Engine (GEE)
 [![](https://developers.google.com/static/earth-engine/images/datasets/copernicus_s2_sr_1280_856.jpg)](https://developers.google.com/earth-engine/datasets/catalog/sentinel)  
@@ -25,7 +26,8 @@ En esta presentación, exploraremos una metodología efectiva para filtrar y sel
 
 ## Hay tres etapas de filtrado:
 ### 1. Aplicar filtros con las variables de interés:
-Primero se debe cargar la capa que contiene mi área de interés. Para ello, se sube el archivo (.shp) desde la plataforma GEE, una vez el archivo esté en la plataforma este puede ser añadido automáticamente como una variable através de la flecha que se despliega cuando el pulsor está sobre el archivo. El nombre de la variable creada puede ser cambiado.
+Primero se debe cargar la capa que contiene mi área de interés. Para ello, se sube el archivo (.shp) desde la plataforma GEE/Assets/New/archivo shp; se deben subir los arcivos .shp, .dbf y .shx, una vez el archivo esté en la plataforma este puede  
+ser añadido automáticamente como una variable através de la flecha que se despliega cuando el pulsor está sobre el archivo. El nombre de la variable creada puede ser cambiado.
 
 A continuación se muestra el código que contiene la fuente de los datos y los filtros principales para la selección de imágenes.  
 ```
