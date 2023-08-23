@@ -180,3 +180,7 @@ image.getInfo(function(info) {
 });
 ```
 El último paso para descargar la imagen es copiar el id original de la imagen y pegarlo en el buscador de Copernicus.
+#### Usted puede acceder a los códigos de cada paso en los siguientes enlaces:
+[1. Aplicar filtros con las variables de interés:](https://code.earthengine.google.com/937b80bd3a6dd4a97ba29d02d1a58276)  
+[2. Selección de Imágenes:](https://code.earthengine.google.com/a82c1c7877589745253177270d770491)  
+[3. Obtención del ID del producto Copernicus:](https://code.earthengine.google.com/345494ada53fcfdcbbfa04cd8a7e51c8)  
