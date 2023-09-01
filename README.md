@@ -32,7 +32,7 @@ ser añadido automáticamente como una variable através de la flecha que se des
 A continuación se muestra el código que contiene la fuente de los datos y los filtros principales para la selección de imágenes.  
 ```
 // Acceder a la coleccion de imagenes Sentinel 2-L1C
-var sentinel1C = ee.ImageCollection("COPERNICUS/S2_SR") // dentro del paréntesis se encuentra el directorio de la colección.
+var sentinel1C = ee.ImageCollection("COPERNICUS/S2_HARMONIZED") // dentro del paréntesis se encuentra el directorio de la colección.
 
 // Aplicar los filtros oportunos:
 var ROI1_2021 = sentinel1C.filterBounds(ROI1)
@@ -171,7 +171,7 @@ estas pueden ser identificadas gracias a la identificación **name** que se le a
 Finalmente, para poder descargar las imágenes originales desde [Copernicus Open Access Hub](https://scihub.copernicus.eu/dhus/#/home)  se debe tener identificada la imágen en GEE y revisar sus *metadatos*, dónde se encuentra almacenada la información original del  
 archivo de interés.  
 ```
-var image = ee.Image("COPERNICUS/S2_SR/20210206T155529_20210206T155524_T17PLL");
+var image = ee.Image("COPERNICUS/S2_HARMONIZED/20210206T155529_20210206T155524_T17PLL");
 
 // Get all metadata properties of the image
 image.getInfo(function(info) {
